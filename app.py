@@ -31,8 +31,13 @@ def home():
     return render_template("index.html")
 
 @app.route("/api/cities")
-def all_cities():
-    return jsonify(cities_data)
+def get_cities():
+    cities = []
+    with open("cities.csv", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            cities.append(row)
+    return jsonify(cities)
 
 @app.route("/api/city/<name>")
 def get_city(name):
@@ -42,4 +47,4 @@ def get_city(name):
     return jsonify({"error": "City not found"}), 404
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run()
