@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify,render_template
 from flask_cors import CORS
 import csv
 
@@ -28,7 +28,7 @@ with open("cities.csv", newline="", encoding="utf-8") as csvfile:
 
 @app.route("/")
 def home():
-    return "CO₂ Map API is running"
+    return render_template("index.html")
 
 @app.route("/api/cities")
 def all_cities():
