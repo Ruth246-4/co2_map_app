@@ -8,7 +8,7 @@ CORS(app)
 cities_data = {}
 
 # Load CSV
-with open("data.csv", newline="", encoding="utf-8") as csvfile:
+with open("cities.csv", newline="", encoding="utf-8") as csvfile:
     reader = csv.DictReader(csvfile)
 
     print("CSV columns:", reader.fieldnames)  # debug
