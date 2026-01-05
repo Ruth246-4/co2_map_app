@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CO₂ Digital Twin Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #map { height: 100vh; }
+
+        /* Search box */
+        .search-container {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 330px;
+            z-index: 1000;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 12px 90px 12px 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        #searchBtn, #clearBtn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #searchBtn { right: 40px; }
+        #clearBtn { right: 10px; }
+
+        /* Action buttons */
+        .action-buttons {
+            position: absolute;
+            top: 70px;
+            left: 15px;
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        .action-buttons button {
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+
+        /* Info panel */
+        .panel {
+            position: fixed;
+            top: 20%;
+            right: 20px;
+            width: 340px;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 12px;
+            z-index: 2000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .hidden { display: none; }
+
+        /* Move zoom buttons down */
+        .leaflet-top.leaflet-left {
+            top: 140px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="search-container">
+    <input id="searchInput" placeholder="Search any place in the world..." />
+    <button id="searchBtn">🔍</button>
+    <button id="clearBtn">✖</button>
+</div>
+
+<div class="action-buttons">
+    <button id="knowBtn">Know</button>
+    <button id="instructionBtn">Instructions</button>
+    <button id="historyBtn">History</button>
+</div>
+
+<div id="infoPanel" class="panel hidden">
+    <button id="closePanel">Close</button>
+    <div id="panelContent"></div>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

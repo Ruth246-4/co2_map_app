@@ -1,0 +1,6 @@
+name,latitude,longitude,co2,population,zone
+Delhi,28.6139,77.2090,240,32000000,Red
+Mumbai,19.0760,72.8777,210,20000000,Red
+Chennai,13.0827,80.2707,160,11000000,Orange
+Bengaluru,12.9716,77.5946,140,13000000,Orange
+Paris,48.8566,2.3522,90,2140000,Green
